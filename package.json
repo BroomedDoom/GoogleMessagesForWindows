@@ -1,0 +1,49 @@
+{
+  "name": "google-messages-for-windows",
+  "version": "0.1.0",
+  "description": "A Windows desktop shell for Google Messages for web with an Android-inspired UX.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "check": "node --check main.js && node --check preload.js && node --check src/renderer.js",
+    "dist:win": "electron-builder --win portable",
+    "dist:dir": "electron-builder --dir"
+  },
+  "keywords": [
+    "electron",
+    "google-messages",
+    "windows",
+    "desktop"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^35.1.4",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "com.googlemessagesforwindows.app",
+    "productName": "Google Messages for Windows",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "src/**/*",
+      "package.json"
+    ],
+    "asar": true,
+    "win": {
+      "target": [
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "artifactName": "GoogleMessagesForWindows-${version}-portable.${ext}"
+    }
+  }
+}
