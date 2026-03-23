@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self' 'unsafe-inline'; img-src 'self' data:;"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Google Messages for Windows</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div>
+          <div class="brand-card">
+            <div class="brand-icon">💬</div>
+            <div>
+              <p class="eyebrow">Desktop shell</p>
+              <h1>Google Messages</h1>
+              <p class="subtle">Android-inspired layout for Windows</p>
+            </div>
+          </div>
+
+          <nav class="nav-list" aria-label="Quick actions">
+            <button class="nav-item is-active" data-action="focus-search">
+              <span>🔎</span>
+              <div>
+                <strong>Search chats</strong>
+                <small>Jump straight into conversations</small>
+              </div>
+            </button>
+            <button class="nav-item" data-action="toggle-density">
+              <span>📱</span>
+              <div>
+                <strong>Compact mode</strong>
+                <small>Make the desktop UI feel closer to Android</small>
+              </div>
+            </button>
+            <button class="nav-item" data-action="refresh">
+              <span>🔄</span>
+              <div>
+                <strong>Refresh sync</strong>
+                <small>Reload Messages without leaving the app</small>
+              </div>
+            </button>
+          </nav>
+        </div>
+
+        <section class="tips-card">
+          <p class="eyebrow">What’s better here</p>
+          <ul>
+            <li>Persistent desktop shell with one-click actions</li>
+            <li>Injected styling to soften the web UI into a mobile-like look</li>
+            <li>Keyboard shortcuts and cleaner spacing for daily use</li>
+          </ul>
+        </section>
+      </aside>
+
+      <main class="main-panel">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Connected to</p>
+            <h2>messages.google.com/web</h2>
+          </div>
+          <div class="status-pill" id="status-pill">Loading Messages…</div>
+        </header>
+
+        <section class="webview-frame">
+          <webview
+            id="messages-webview"
+            src="https://messages.google.com/web/conversations"
+            partition="persist:google-messages"
+            allowpopups
+            useragent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome Safari Electron GoogleMessagesForWindows/0.1.0"
+          ></webview>
+        </section>
+      </main>
+    </div>
+
+    <script src="./renderer.js"></script>
+  </body>
+</html>
